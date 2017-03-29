@@ -1,18 +1,23 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@using System.Security.Cryptography
+@{
     Layout = null;
 }
 
 <aside class="main-sidebar">
     <section class="sidebar">
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="~/Content/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+        
+        @if (Request.IsAuthenticated)
+        {
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="http://www.gravatar.com/avatar/?d=identicon&size=160" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                    <p>@User.Identity.GetUserName()</p>
+                </div>
             </div>
-            <div class="pull-left info">
-                <p>Alexander Pierce</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-        </div>
+        }
         <ul class="sidebar-menu">
             <li class="header">Book Menu</li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Publishers" ? "active" : "")"><a href="~/Publishers"><i class="fa fa-book"></i> <span>Publisher</span></a></li>
