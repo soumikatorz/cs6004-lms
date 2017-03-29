@@ -1,7 +1,8 @@
 ﻿<#@ template language="C#" HostSpecific="True" #>
 <#@ output extension=".cshtml" #>
 <#@ include file="Imports.include.t4" #>
-@model IEnumerable<#= "<" + ViewDataTypeName + ">" #>
+@model PagedList.IPagedList<#= "<" + ViewDataTypeName + ">" #>
+@using PagedList.Mvc
 <#
 // The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
 if(IsPartialView) {
@@ -12,7 +13,7 @@ if(IsPartialView) {
 #>
 
 @{
-    ViewBag.Title = "<#= ViewName#>";
+    ViewBag.Title = "<#= ViewDataTypeShortName #>";
 	ViewBag.TitleSmall = "All";
 <#
 if (!String.IsNullOrEmpty(LayoutPageFile)) {
@@ -36,7 +37,7 @@ if (!String.IsNullOrEmpty(LayoutPageFile)) {
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title><#= ViewName #></title>
+    <title><#= ViewDataTypeShortName #></title>
 </head>
 <body>
 <#
@@ -66,7 +67,7 @@ foreach (PropertyMetadata property in properties) {
         }
 #>
 							<th>
-								@Html.DisplayNameFor(model => model.<#= GetValueExpression(property) #>)
+								@Html.DisplayNameFor(model => model.FirstOrDefault().<#= GetValueExpression(property) #>)
 							</th>
 <#
     }
