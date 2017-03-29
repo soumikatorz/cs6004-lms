@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LMS.Models
 {
-    public class BookCopy
+    public class BookCopy : BaseEntity
     {
         public Guid ID { get; set; }
         public int CopyNumber { get; set; }
@@ -13,8 +13,5 @@ namespace LMS.Models
         public string Location { get; set; }
         public Boolean Available { get; set; }
         public ICollection<Loan> Loans { get; set; }
-        public ApplicationUser UpdatedBy { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
     }
 }

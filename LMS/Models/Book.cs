@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LMS.Models
 {
-    public class Book
+    public class Book : BaseEntity
     {
         public Guid ID { get; set; }
         public string ISBN { get; set; }
@@ -18,8 +18,5 @@ namespace LMS.Models
         public ICollection<Category> Categories { get; set; }
         public ICollection<Author> Authors { get; set; }
         public ICollection<BookCopy> Copies { get; set; }
-        public ApplicationUser UpdatedBy { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
     }
 }

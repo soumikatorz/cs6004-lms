@@ -1,5 +1,10 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
 
 namespace LMS.Models
 {
@@ -24,6 +29,32 @@ namespace LMS.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        public override int SaveChanges()
+        {
+            AddTimestamps();
+            return base.SaveChanges();
+        }
+
+        public override async Task<int> SaveChangesAsync()
+        {
+            AddTimestamps();
+            return await base.SaveChangesAsync();
+        }
+
+        private void AddTimestamps()
+        {
+            var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+            var currentUsername = !string.IsNullOrEmpty(HttpContext.Current?.User?.Identity?.Name)
+                ? HttpContext.Current.User.Identity.Name
+                : "Anonymous";
+
+            foreach (var entity in entities)
+            {
+                ((BaseEntity) entity.Entity).LastUpdated = DateTime.UtcNow;
+                ((BaseEntity)entity.Entity).LastUpdatedBy = currentUsername;
+            }
         }
     }
 }

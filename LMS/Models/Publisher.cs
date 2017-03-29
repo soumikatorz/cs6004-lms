@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace LMS.Models
 {
-    public class Publisher
+    public class Publisher : BaseEntity
     {
         public Guid ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Location { get; set; }
         public ICollection<Book> Books { get; set; }
-        public ApplicationUser UpdatedBy { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
     }
 }
