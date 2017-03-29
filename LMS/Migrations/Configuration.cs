@@ -70,6 +70,8 @@ namespace LMS.Migrations
                 .With(b => b.PublishedDate = DateTime.Now.AddYears(-randomNumber.Next(1, 50)))
                 .With(b => b.Charge = randomNumber.Next(50, 1000))
                 .With(b => b.PenaltyCharge = randomNumber.Next(100, 1000))
+                .With(b => b.Authors = Pick<Author>.UniqueRandomList(With.Between(1).And(5).Elements).From(authors))
+                .With(b => b.Categories = Pick<Category>.UniqueRandomList(With.Between(1).And(3).Elements).From(categories))
                 .Build();
 
             context.Books.AddOrUpdate(books.ToArray());
