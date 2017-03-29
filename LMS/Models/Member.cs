@@ -6,9 +6,17 @@ using System.Web;
 
 namespace LMS.Models
 {
-    public class Member : Person
+    public class Member : BaseEntity
     {
         public Guid ID { get; set; }
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Display(Name = "Middle Name")]
+        public string MiddleName { get; set; }
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
         [Required, DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
         [Required, Display(Name ="Membership")]

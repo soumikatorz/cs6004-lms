@@ -22,9 +22,10 @@
             <li class="header">Book Menu</li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Publishers" ? "active" : "")"><a href="~/Publishers"><i class="fa fa-book"></i> <span>Publisher</span></a></li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Authors" ? "active" : "")"><a href="~/Authors"><i class="fa fa-user"></i> <span>Author</span></a></li>
-            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Presses" ? "active" : "")"><a href="~/Presses"><i class="fa fa-print"></i> <span>Press</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Press" ? "active" : "")"><a href="~/Press"><i class="fa fa-print"></i> <span>Press</span></a></li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Categories" ? "active" : "")"><a href="~/Categories"><i class="fa fa-bookmark"></i> <span>Category</span></a></li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Books" ? "active" : "")"><a href="~/Books"><i class="fa fa-book"></i> <span>Books</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "BookCopies" ? "active" : "")"><a href="~/BookCopies"><i class="fa fa-book"></i> <span>Book Copy</span></a></li>
             <li class="header">Member Menu</li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Memberships" ? "active" : "")"><a href="~/Memberships"><i class="fa fa-th"></i> <span>Membership Categories</span></a></li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Members" ? "active" : "")"><a href="~/Members"><i class="fa fa-users"></i> <span>Members</span></a></li>

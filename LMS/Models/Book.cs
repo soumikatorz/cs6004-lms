@@ -10,9 +10,9 @@ namespace LMS.Models
     {
         public Guid ID { get; set; }
         [Required]
-        public string ISBN { get; set; }
-        [Required]
         public string Name { get; set; }
+        [Required]
+        public string ISBN { get; set; }
         [Required, Display(Name="Publisher")]
         public Guid PublisherID { get; set; }
         public virtual Publisher Publisher { get; set; }

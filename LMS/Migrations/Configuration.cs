@@ -30,7 +30,6 @@ namespace LMS.Migrations
                 .Build();
 
             context.Publishers.AddOrUpdate(publishers.ToArray());
-            context.SaveChanges();
 
             var authors = Builder<Author>.CreateListOfSize(20)
                 .All()
@@ -40,7 +39,6 @@ namespace LMS.Migrations
                 .Build();
 
             context.Authors.AddOrUpdate(authors.ToArray());
-            context.SaveChanges();
 
             var press = Builder<Press>.CreateListOfSize(5)
                 .All()
@@ -49,16 +47,14 @@ namespace LMS.Migrations
                 .Build();
 
             context.Press.AddOrUpdate(press.ToArray());
-            context.SaveChanges();
 
             var categories = Builder<Category>.CreateListOfSize(20)
                 .All()
                 .With(c => c.ID = Guid.NewGuid())
-                .With(c => c.Name = Faker.Lorem.GetFirstWord())
+                .With(c => c.Name = Faker.Lorem.Sentence())
                 .Build();
 
             context.Categories.AddOrUpdate(categories.ToArray());
-            context.SaveChanges();
 
             var books = Builder<Book>.CreateListOfSize(50)
                 .All()
@@ -75,7 +71,6 @@ namespace LMS.Migrations
                 .Build();
 
             context.Books.AddOrUpdate(books.ToArray());
-            context.SaveChanges();
 
             foreach (var book in books)
             {
@@ -89,18 +84,16 @@ namespace LMS.Migrations
                     .Build();
 
                 context.BookCopies.AddOrUpdate(bookCopies.ToArray());
-                context.SaveChanges();
             }
 
             var memberships = Builder<Membership>.CreateListOfSize(5)
                 .All()
                 .With(b => b.ID = Guid.NewGuid())
-                .With(b => b.Name = Faker.Lorem.GetFirstWord())
+                .With(b => b.Name = Faker.Lorem.Sentence())
                 .With(b => b.MaxLoans = randomNumber.Next(1, 10))
                 .Build();
 
             context.Memberships.AddOrUpdate(memberships.ToArray());
-            context.SaveChanges();
 
             var members = Builder<Member>.CreateListOfSize(100)
                 .All()
@@ -114,17 +107,15 @@ namespace LMS.Migrations
                 .Build();
 
             context.Members.AddOrUpdate(members.ToArray());
-            context.SaveChanges();
 
             var loanTypes = Builder<LoanType>.CreateListOfSize(5)
                 .All()
                 .With(a => a.ID = Guid.NewGuid())
-                .With(a => a.Name = Faker.Lorem.GetFirstWord())
+                .With(a => a.Name = Faker.Lorem.Sentence())
                 .With(a => a.Duration = randomNumber.Next(5, 20))
                 .Build();
 
             context.LoanTypes.AddOrUpdate(loanTypes.ToArray());
-            context.SaveChanges();
 
             List<Loan> loans = new List<Loan>();
             
@@ -137,8 +128,8 @@ namespace LMS.Migrations
                     var loanType = Pick<LoanType>.RandomItemFrom(loanTypes);
                     var dateIssued = DateTime.Now.AddDays(-randomNumber.Next(1, 90));
                     var dueDate = dateIssued.AddDays(loanType.Duration);
-                    var dateReturned = randomNumber.Next(1, 100) > 50 ? dateIssued.AddDays(loanType.Duration + randomNumber.Next(-5, 10)) : (DateTime) SqlDateTime.MinValue;
-                    var penalty = dateReturned.Equals((DateTime) SqlDateTime.MinValue) ? 0 : (dateReturned < dueDate ? 0 : (dateReturned - dueDate).TotalDays * book.PenaltyCharge);
+                    var dateReturned = randomNumber.Next(1, 100) > 50 ? dateIssued.AddDays(loanType.Duration + randomNumber.Next(-5, 10)) : DateTime.MinValue;
+                    var penalty = dateReturned.Equals(DateTime.MinValue) ? 0 : (dateReturned < dueDate ? 0 : (dateReturned - dueDate).TotalDays * book.PenaltyCharge);
 
                     var loan = new Loan
                     {
@@ -147,11 +138,17 @@ namespace LMS.Migrations
                         Member = Pick<Member>.RandomItemFrom(members),
                         IssuedOn = dateIssued,
                         DueDate = dueDate,
-                        ReturnedOn = dateReturned,
                         LoanCharge = loanType.Duration * book.Charge,
                         PenaltyCharge = penalty,
-                        LoanType = loanType
+                        LoanType = loanType,
                     };
+
+                    if (!dateReturned.Equals(DateTime.MinValue))
+                    {
+                        loan.ReturnedOn = dateReturned;
+                    }
+
+                    bookCopy.Available = false;
                     loans.Add(loan);
                 }
             }
