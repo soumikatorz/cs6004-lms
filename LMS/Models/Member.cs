@@ -10,7 +10,7 @@ namespace LMS.Models
     {
         public Guid ID { get; set; }
         [Required, DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         [Required, Display(Name ="Membership")]
         public Guid MembershipID { get; set; }
         public virtual Membership Membership { get; set; }

@@ -16,7 +16,7 @@ namespace LMS.Models
         public Guid MemberID { get; set; }
         public virtual Member Member { get; set; }
         [Required, DataType(DataType.Date)]
-        public DateTime IssuedOn { get; set; }
+        public DateTime? IssuedOn { get; set; }
         [DataType(DataType.Date), Editable(false)]
         public DateTime? ReturnedOn { get; set; }
         [Editable(false)]
@@ -24,12 +24,12 @@ namespace LMS.Models
         [Editable(false)]
         public double? PenaltyCharge { get; set; }
         [DataType(DataType.Date), Editable(false)]
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
         [Required, Display(Name ="Loan Type")]
         public Guid LoanTypeID { get; set; }
         public virtual LoanType LoanType { get; set; }
         [Editable(false)]
-        public Guid ApplicationUserID { get; set; }
+        public Guid LoanedByID { get; set; }
         public virtual ApplicationUser LoanedBy { get; set; }
     }
 }

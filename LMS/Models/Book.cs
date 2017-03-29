@@ -20,7 +20,7 @@ namespace LMS.Models
         public Guid PressID { get; set; }
         public virtual Press Press { get; set; }
         [Required, DataType(DataType.Date)]
-        public DateTime PublishedDate { get; set; }
+        public DateTime? PublishedDate { get; set; }
         [Required]
         public double Charge { get; set; }
         [Required]
