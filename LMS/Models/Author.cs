@@ -8,6 +8,6 @@ namespace LMS.Models
     public class Author : Person
     {
         public Guid ID { get; set; }
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

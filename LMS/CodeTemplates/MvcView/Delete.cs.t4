@@ -78,7 +78,7 @@ foreach (PropertyMetadata property in ModelMetadata.Properties) {
     }
 }
 #>
-                </div
+                </div>
                 <div class="box-footer">
                     <a class="btn btn-warning btn-sm" href="@Url.Action("Index")"><i class="fa fa-angle-double-left"> </i> Back to List</a>
                     <button type="submit" class="btn btn-danger pull-right"><i class="fa fa-trash"></i> Delete</button>

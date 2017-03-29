@@ -10,9 +10,8 @@ namespace LMS.Models
     {
         public Guid ID { get; set; }
         [Required]
-        
         public string Name { get; set; }
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
         [Display(Name="Age Restricted")]
         public Boolean AgeRestricted { get; set; }
     }

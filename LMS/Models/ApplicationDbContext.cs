@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using LMS.Extensions;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -47,7 +48,7 @@ namespace LMS.Models
         {
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
             var currentUsername = !string.IsNullOrEmpty(HttpContext.Current?.User?.Identity?.Name)
-                ? HttpContext.Current.User.Identity.Name
+                ? HttpContext.Current.User.Identity.GetFullName()
                 : "Anonymous";
 
             foreach (var entity in entities)

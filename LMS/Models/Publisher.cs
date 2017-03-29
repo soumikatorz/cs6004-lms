@@ -14,6 +14,6 @@ namespace LMS.Models
         public string Name { get; set; }
         [Required]
         public string Location { get; set; }
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }
