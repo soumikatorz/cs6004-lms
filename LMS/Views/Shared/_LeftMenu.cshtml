@@ -21,13 +21,13 @@
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Categories" ? "active" : "")"><a href="~/Categories"><i class="fa fa-bookmark"></i> <span>Category</span></a></li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Books" ? "active" : "")"><a href="~/Books"><i class="fa fa-book"></i> <span>Books</span></a></li>
             <li class="header">Member Menu</li>
-            <li><a href="~/MembershipCategories"><i class="fa fa-th"></i> <span>Membership Categories</span></a></li>
-            <li><a href="~/Members"><i class="fa fa-users"></i> <span>Members</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Memberships" ? "active" : "")"><a href="~/Memberships"><i class="fa fa-th"></i> <span>Membership Categories</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Members" ? "active" : "")"><a href="~/Members"><i class="fa fa-users"></i> <span>Members</span></a></li>
             <li class="header">Loan Menu</li>
-            <li><a href="~/LoanTypes"><i class="fa fa-bank"></i> <span>Loan Types</span></a></li>
-            <li><a href="~/Loans"><i class="fa fa-usd"></i> <span>Loans</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "LoanTypes" ? "active" : "")"><a href="~/LoanTypes"><i class="fa fa-bank"></i> <span>Loan Types</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Loans" ? "active" : "")"><a href="~/Loans"><i class="fa fa-usd"></i> <span>Loans</span></a></li>
             <li class="header">User Menu</li>
-            <li><a href="~/Users"><i class="fa fa-users"></i> <span>Users</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Users" ? "active" : "")"><a href="~/Users"><i class="fa fa-users"></i> <span>Users</span></a></li>
         </ul>
     </section>
 </aside>
