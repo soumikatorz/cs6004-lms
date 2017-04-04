@@ -1,0 +1,106 @@
+﻿@model LMS.Models.Loan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookCopy.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookCopy.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssuedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssuedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PenaltyCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PenaltyCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanedByID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanedByID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

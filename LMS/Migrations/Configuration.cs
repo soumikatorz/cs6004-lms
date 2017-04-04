@@ -1,6 +1,8 @@
 namespace LMS.Migrations
 {
     using FizzWare.NBuilder;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using System;
     using System.Collections.Generic;
@@ -9,6 +11,7 @@ namespace LMS.Migrations
     using System.Data.SqlTypes;
     using System.Diagnostics;
     using System.Linq;
+    using System.Web;
 
     internal sealed class Configuration : DbMigrationsConfiguration<LMS.Models.ApplicationDbContext>
     {
@@ -20,6 +23,26 @@ namespace LMS.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+            if (!context.Roles.Any(r => r.Name == "Manager"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var mgr = new IdentityRole { Name = "Manager" };
+                manager.Create(mgr);
+                var assistant = new IdentityRole { Name = "Assistant" };
+                manager.Create(assistant);
+            }
+
+            if (!context.Users.Any(u => u.UserName == "manager@example.com"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser { FullName="Manager", UserName = "manager@example.com", Email= "manager@example.com" };
+
+                manager.Create(user, "Password@123");
+                manager.AddToRole(user.Id, "Manager");
+            }
+
             var randomNumber = new RandomGenerator();
 
             var publishers = Builder<Publisher>.CreateListOfSize(10)

@@ -1,0 +1,76 @@
+﻿@model LMS.Models.BookCopy
+
+@{
+    ViewBag.Title = "BookCopy";
+	ViewBag.TitleSmall = "Delete";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Are you sure you want to delete this?</h3>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                <div class="box-body">
+
+                    @Html.AntiForgeryToken()
+					<dl class="dl-horizontal">
+						<dt>
+							@Html.DisplayNameFor(model => model.Book.Name)
+						</dt>
+
+						<dd>
+							@Html.DisplayFor(model => model.Book.Name)
+						</dd>
+
+						<dt>
+							@Html.DisplayNameFor(model => model.CopyNumber)
+						</dt>
+
+						<dd>
+							@Html.DisplayFor(model => model.CopyNumber)
+						</dd>
+
+						<dt>
+							@Html.DisplayNameFor(model => model.Location)
+						</dt>
+
+						<dd>
+							@Html.DisplayFor(model => model.Location)
+						</dd>
+
+						<dt>
+							@Html.DisplayNameFor(model => model.Available)
+						</dt>
+
+						<dd>
+							@Html.DisplayFor(model => model.Available)
+						</dd>
+
+						<dt>
+							@Html.DisplayNameFor(model => model.LastUpdatedBy)
+						</dt>
+
+						<dd>
+							@Html.DisplayFor(model => model.LastUpdatedBy)
+						</dd>
+
+						<dt>
+							@Html.DisplayNameFor(model => model.LastUpdated)
+						</dt>
+
+						<dd>
+							@Html.DisplayFor(model => model.LastUpdated)
+						</dd>
+
+                </div>
+                <div class="box-footer">
+                    <a class="btn btn-warning btn-sm" href="@Url.Action("Index")"><i class="fa fa-angle-double-left"> </i> Back to List</a>
+                    <button type="submit" class="btn btn-danger pull-right"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
