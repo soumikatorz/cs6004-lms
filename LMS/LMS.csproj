@@ -195,9 +195,9 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\MembershipsController.cs" />
-    <Compile Include="Controllers\OldBooks.cs" />
     <Compile Include="Controllers\PressController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -387,11 +387,6 @@
     <Content Include="Views\Reports\OldBooks.cshtml" />
     <Content Include="Views\Reports\InactiveMembers.cshtml" />
     <Content Include="Views\Reports\InactiveBooks.cshtml" />
-    <Content Include="Views\OldBooks\Create.cshtml" />
-    <Content Include="Views\OldBooks\Delete.cshtml" />
-    <Content Include="Views\OldBooks\Details.cshtml" />
-    <Content Include="Views\OldBooks\Edit.cshtml" />
-    <Content Include="Views\OldBooks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
