@@ -1,0 +1,71 @@
+﻿@model PagedList.IPagedList<LMS.Models.Book>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Book";
+	ViewBag.TitleSmall = "All";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-body">
+                <table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>
+								Press Name
+							</th>
+							<th>
+								Publisher Name
+							</th>
+							<th>
+								Book Name
+							</th>
+							<th>
+								Author Name
+							</th>
+                            <th>
+                                Book Copy
+                            </th>
+							<th>
+								Last Loaned On
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach (var item in Model) {
+							<tr>
+								<td>
+									@Html.DisplayFor(modelItem => item.Press.Name)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Publisher.Name)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Name)
+								</td>
+								<td>
+									
+								</td>
+								<td>
+									
+								</td>
+								<td>
+									
+								</td>
+							
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+			<div class="box-footer clearfix">
+                <div class="pull-right">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+		</div>
+	</div>
+</div>

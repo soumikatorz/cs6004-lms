@@ -12,21 +12,38 @@
             <div class="box-header with-border">
                 <a class="btn btn-primary pull-right" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Add</a>
             </div>
+            <div class="row">
+                <div class="col-sm-8" style="margin-left: 12px; margin-top:18px">
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                            @Html.TextBox("SearchString")
+                            <input type="submit" value="Search" />
+                        </p>
+                    }
+                </div>
+                <div class="col-sm-2 pull-right" style="margin-right:10px">
+                    Sort
+                    <select class="form-control">
+                        <option id="1">Alphabetically</option>
+                    </select>
+                </div>
+            </div>
             <div class="box-body">
                 <table class="table table-bordered">
 					<thead>
 						<tr>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().Membership.Name)
+								Membership Type
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().FirstName)
+								First Name
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().MiddleName)
+								Middle Name
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().LastName)
+								Last Name
 							</th>
 							<th>
 								@Html.DisplayNameFor(model => model.FirstOrDefault().DateOfBirth)
@@ -37,6 +54,12 @@
 							<th>
 								@Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber)
 							</th>
+                            <th>
+                                Active Loans
+                            </th>
+                            <th>
+                                Total Loans Allowed
+                            </th>
 							<th>
 								@Html.DisplayNameFor(model => model.FirstOrDefault().LastUpdatedBy)
 							</th>
@@ -71,6 +94,12 @@
 								<td>
 									@Html.DisplayFor(modelItem => item.PhoneNumber)
 								</td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
 								<td>
 									@Html.DisplayFor(modelItem => item.LastUpdatedBy)
 								</td>

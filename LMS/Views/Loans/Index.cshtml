@@ -10,44 +10,52 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                <a class="btn btn-primary pull-right" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Add</a>
+                <div class="box-header with-border">
+                    <a class="btn btn-primary pull-right" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Add</a>
+                    <a class="btn btn-warning pull-right" href="@Url.Action("Return")" style="margin-right:10px"> Record Return</a>
             </div>
             <div class="box-body">
                 <table class="table table-bordered">
 					<thead>
 						<tr>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().BookCopy.Location)
+								Location
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().LoanType.Name)
+								Loan Type
+							</th>
+                            <th>
+                                Book Name
+                            </th>
+                            <th>
+                                Copy Number
+                            </th>
+							<th>
+								Borrowed By
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().Member.FirstName)
+								Issued On
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().IssuedOn)
+								Returned On
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().ReturnedOn)
+								Loan Charge
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().LoanCharge)
+								Penalty Charge
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().PenaltyCharge)
+								Due Date
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().DueDate)
+								Loaned By
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().LoanedByID)
+								Last Updated By
 							</th>
 							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().LastUpdatedBy)
-							</th>
-							<th>
-								@Html.DisplayNameFor(model => model.FirstOrDefault().LastUpdated)
+								Last Updated On
 							</th>
 							<th></th>
 						</tr>
@@ -62,6 +70,12 @@
 								<td>
 									@Html.DisplayFor(modelItem => item.LoanType.Name)
 								</td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
 								<td>
 									@Html.DisplayFor(modelItem => item.Member.FirstName)
 								</td>

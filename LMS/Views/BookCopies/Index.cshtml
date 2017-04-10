@@ -11,6 +11,16 @@
         <div class="box">
             <div class="box-header with-border">
                 <a class="btn btn-primary pull-right" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Add</a>
+                <div class="box-header pull-left">
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                            Search &nbsp;
+                            @Html.TextBox("SearchString")
+                            <input type="submit" value="Search" />
+                        </p>
+                    }
+                </div>
             </div>
             <div class="box-body">
                 <table class="table table-bordered">
