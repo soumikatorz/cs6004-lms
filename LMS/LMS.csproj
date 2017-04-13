@@ -381,12 +381,10 @@
     <Content Include="Views\BookCopies\Details.cshtml" />
     <Content Include="Views\BookCopies\Edit.cshtml" />
     <Content Include="Views\BookCopies\Index.cshtml" />
-    <Content Include="Views\Members\LoanDetail.cshtml" />
     <Content Include="Views\Loans\Return.cshtml" />
     <Content Include="Views\Reports\OldBooks.cshtml" />
     <Content Include="Views\Reports\InactiveMembers.cshtml" />
     <Content Include="Views\Reports\InactiveBooks.cshtml" />
-    <Content Include="Views\Shared\LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

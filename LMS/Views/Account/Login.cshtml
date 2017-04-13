@@ -1,22 +1,15 @@
 ﻿@using LMS.Models
 @model LoginViewModel
 
-@{
-    Layout = "~/Views/Shared/LoginLayout.cshtml";
-}
 
 
 <div class="row">
     <div class="login-box">
-        <div class="login-logo">
-            <b>LMS</b>Admin
-        </div>
-
+        
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4 style="text-align:center">Use a local account to log in</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
