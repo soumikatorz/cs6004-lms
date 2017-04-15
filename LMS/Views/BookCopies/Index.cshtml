@@ -27,12 +27,12 @@
 							<th>
 								Book Name
 							</th>
-                            <th>
-                                Publisher Name
-                            </th>
-                            <th>
-                                Author Name
-                            </th>
+							<th>
+								Publisher Name
+							</th>
+							<th>
+								Author Name
+							</th>
 							<th>
 								Copy Number
 							</th>
@@ -58,12 +58,17 @@
 								<td>
 									@Html.DisplayFor(modelItem => item.Book.Name)
 								</td>
-                                <td>
-                                    Blabla
-                                </td>
-                                <td>
-                                    blabla
-                                </td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Publisher.Name)
+								</td>
+								<td>
+									@{
+										foreach (var author in item.Authors)
+										{
+											@: @author.FirstName @author.MiddleName @author.LastName br />
+										}
+									}
+								</td>
 								<td>
 									@Html.DisplayFor(modelItem => item.CopyNumber)
 								</td>
@@ -81,7 +86,7 @@
 								</td>
 								<td>
 									<a class="btn btn-primary btn-sm" href="@Url.Action("Edit", new { id=item.ID })"><i class="fa fa-edit"> </i> Edit</a>
-                                    <a class="btn btn-warning btn-sm" href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-info"> </i> Details</a>
+									<a class="btn btn-secondary btn-sm" href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-info"> </i> Details</a>
 									<a class="btn btn-danger btn-sm" href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash"> </i> Delete</a>
 								</td>
 							</tr>
