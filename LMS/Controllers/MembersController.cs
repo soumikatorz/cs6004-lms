@@ -132,10 +132,5 @@ namespace LMS.Controllers
             }
             base.Dispose(disposing);
         }
-
-        public ActionResult LoanDetail()
-        {
-            return View();
-        }
     }
 }
