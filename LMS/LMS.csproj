@@ -197,6 +197,7 @@
     <Compile Include="Controllers\MembershipsController.cs" />
     <Compile Include="Controllers\PressController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -380,6 +381,10 @@
     <Content Include="Views\BookCopies\Details.cshtml" />
     <Content Include="Views\BookCopies\Edit.cshtml" />
     <Content Include="Views\BookCopies\Index.cshtml" />
+    <Content Include="Views\Loans\Return.cshtml" />
+    <Content Include="Views\Reports\OldBooks.cshtml" />
+    <Content Include="Views\Reports\InactiveMembers.cshtml" />
+    <Content Include="Views\Reports\InactiveBooks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

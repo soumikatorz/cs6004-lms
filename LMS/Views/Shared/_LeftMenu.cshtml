@@ -34,6 +34,10 @@
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Loans" ? "active" : "")"><a href="~/Loans"><i class="fa fa-usd"></i> <span>Loans</span></a></li>
             <li class="header">User Menu</li>
             <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Users" ? "active" : "")"><a href="~/Users"><i class="fa fa-users"></i> <span>Users</span></a></li>
+            <li class="header">Reports</li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" && ViewContext.RouteData.Values["action"].ToString() == "OldBooks" ? "active" : "")"><a href="~/Reports/OldBooks"><i class="fa fa-file-text-o"></i> <span>Old Books</span></a></li>
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" && ViewContext.RouteData.Values["action"].ToString() == "InactiveBooks" ? "active" : "")"><a href="~/Reports/InactiveBooks"><i class="fa fa-bar-chart"></i> <span>Inactive Books</span></a></li>    
+            <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Reports" && ViewContext.RouteData.Values["action"].ToString() == "InactiveMembers" ? "active" : "")"><a href="~/Reports/InactiveMembers"><i class="fa fa-user-times"></i> <span>Inactive Members</span></a></li>          
         </ul>
     </section>
 </aside>
